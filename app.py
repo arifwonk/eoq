@@ -18,7 +18,7 @@ def login():
     password = st.text_input("Password", type="password")
 
     if st.button("Login"):
-        if username == "admin" and password == "0099":
+        if username == "arif" and password == "0099":
             st.session_state["login"] = True
         else:
             st.error("Username / Password salah")
