@@ -11,26 +11,26 @@ import streamlit as st
 st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 
 
-def login():
-    st.title("🔐 Login")
+# def login():
+#     st.title("🔐 Login")
 
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
+#     username = st.text_input("Username")
+#     password = st.text_input("Password", type="password")
 
-    if st.button("Login"):
-        if username == "arif" and password == "0099":
-            st.session_state["login"] = True
-        else:
-            st.error("Username / Password salah")
+#     if st.button("Login"):
+#         if username == "arif" and password == "0099":
+#             st.session_state["login"] = True
+#         else:
+#             st.error("Username / Password salah")
 
 
-# cek login
-if "login" not in st.session_state:
-    st.session_state["login"] = False
+# # cek login
+# if "login" not in st.session_state:
+#     st.session_state["login"] = False
 
-if not st.session_state["login"]:
-    login()
-    st.stop()
+# if not st.session_state["login"]:
+#     login()
+#     st.stop()
 
 # Upload file
 
