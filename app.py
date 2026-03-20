@@ -3,6 +3,34 @@ import pandas as pd
 import numpy as np
 import io
 
+import streamlit as st
+
+# =========================
+# LOGIN SYSTEM
+# =========================
+
+
+def login():
+    st.title("🔐 Login")
+
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+
+    if st.button("Login"):
+        if username == "admin" and password == "0099":
+            st.session_state["login"] = True
+        else:
+            st.error("Username / Password salah")
+
+
+# cek login
+if "login" not in st.session_state:
+    st.session_state["login"] = False
+
+if not st.session_state["login"]:
+    login()
+    st.stop()
+
 st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 
 # Upload file
