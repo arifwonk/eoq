@@ -8,7 +8,7 @@ import streamlit as st
 # =========================
 # LOGIN SYSTEM
 # =========================
-st.caption("ROP • EOQ • Safety Stock Analysis")
+st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 
 
 def login():
@@ -38,7 +38,7 @@ if st.button("Logout"):
     st.rerun()
 
 # Upload file
-st.caption("ROP • EOQ • Safety Stock Analysis")
+st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 
 uploaded_file = st.file_uploader("Upload file Excel", type=["xlsx"])
 
