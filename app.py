@@ -31,6 +31,10 @@ if not st.session_state["login"]:
     login()
     st.stop()
 
+# Log out
+if st.button("Logout"):
+    st.session_state["login"] = False
+    st.experimental_rerun()
 st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 
 # Upload file
