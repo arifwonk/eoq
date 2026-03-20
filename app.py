@@ -33,9 +33,8 @@ if not st.session_state["login"]:
 
 # Log out
 if st.button("Logout"):
-    st.session_state["login"] = False
-    st.experimental_rerun()
-st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
+    st.session_state.clear()
+    st.rerun()
 
 # Upload file
 uploaded_file = st.file_uploader("Upload file Excel", type=["xlsx"])
