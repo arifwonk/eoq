@@ -139,5 +139,4 @@ if uploaded_file:
 # Log out
 if st.button("Logout"):
     st.session_state.clear()
-    st.session_state["uploader_key"] = str(np.random.rand())  # reset uploader
     st.rerun()
