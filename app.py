@@ -2,27 +2,47 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import io
+from supabase import create_client
 
-# =========================
-# LOGIN SYSTEM
-# =========================
+SUPABASE_URL = "https://glxjsgzismusmhzwvfud.supabase.co"
+SUPABASE_KEY = "sb_publishable_kKw9D8hXE-gsEWXp1cJxQQ_U6RZEF-A"
+
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+
+# FUNCTION LOGIN
 st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
+
+
+def check_login(useranme, password):
+    response = supabase.table("user")\
+        .select("*")\
+        .eq("username", useranme)\
+        .eq("password", password)\
+        .execute()
+
+    if len(response.data) > 0:
+        return True
+    return False
+
+# UI LOGIN
 
 
 def login():
     st.title("🔐 Login")
 
     username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
+    password = st.text_input("Password")
 
     if st.button("Login"):
-        if username == "arif" and password == "0099":
+        if check_login(username, password):
             st.session_state["login"] = True
+            st.session_state["user"] = username
         else:
-            st.error("Username / Password salah")
+            st.error("Login Gagal")
 
 
-# cek login
+# cek login (PROTECT APP)
 if "login" not in st.session_state:
     st.session_state["login"] = False
 
