@@ -6,7 +6,6 @@ import bcrypt
 from supabase import create_client
 
 SUPABASE_URL = "https://glxjsgzismusmhzwvfud.supabase.co"
-# SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdseGpzZ3ppc211c21oend2ZnVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMzY1MzksImV4cCI6MjA4OTcxMjUzOX0.7MzXsGK4PWamAKe3y9Zkl-cIJgRelSh4RncNIx1yOzg"
 SUPABASE_KEY = "sb_publishable_kKw9D8hXE-gsEWXp1cJxQQ_U6RZEF-A"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
@@ -15,43 +14,28 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 
 
-# def check_login(username, password):
+def check_login(username, password):
 
-#     response = supabase.table("users") \
-#         .select("*") \
-#         .eq("username", username) \
-#         .eq("password", password) \
-#         .execute()
+    response = supabase.table("users") \
+        .select("*") \
+        .eq("username", username) \
+        .eq("password", password) \
+        .execute()
 
-# if len(response.data) > 0:
-#     return True
-# return False
-
-
-def create_user(username, password, role):
-    hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
-
-    supabase.table("users").insert({
-        "username": username,
-        "password": hashed,
-        "role": role
-    }).execute()
-
-
-# contoh
-create_user("admin", "0099", "admin")
-create_user("user1", "4567", "user")
+    if len(response.data) > 0:
+        return True
+    return False
 
 # UI LOGIN
 
 
 # cek login (PROTECT APP)
-# if "login" not in st.session_state:
-#     st.session_state["login"] = False
+if "login" not in st.session_state:
+    st.session_state["login"] = False
 
-# if not st.session_state["login"]:
-#     login()
-#     st.stop()
+if not st.session_state["login"]:
+    login()
+    st.stop()
 
 
 # Upload file
