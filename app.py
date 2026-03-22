@@ -69,6 +69,21 @@ if not st.session_state["login"]:
     login()
     st.stop()
 
+# HEADER
+# =========================
+st.markdown("## 📦 Inventory Dashboard")
+st.caption("ROP • EOQ • Safety Stock Analysis")
+
+st.success(
+    f"Login sebagai: {st.session_state['user']} ({st.session_state['role']})")
+
+# =========================
+# LOGOUT
+# =========================
+if st.button("Logout"):
+    st.session_state.clear()
+    st.rerun()
+
 # Upload file
 
 uploaded_file = st.file_uploader("Upload file Excel", type=["xlsx"])
@@ -151,8 +166,3 @@ if uploaded_file:
         data=buffer,
         file_name="hasil.xlsx"
     )
-
-# Log out
-if st.button("Logout"):
-    st.session_state.clear()
-    st.rerun()
