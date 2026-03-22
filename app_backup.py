@@ -54,7 +54,8 @@ if not st.session_state["login"]:
 
 # Upload file
 
-uploaded_file = st.file_uploader("Upload file Excel", type=["xlsx"])
+uploaded_file = st.file_uploader("Upload file Excel", type=[
+                                 "xlsx"], key=st.session_state.get("uploader_key", "default"))
 
 
 def get_z(service_level):
@@ -138,4 +139,5 @@ if uploaded_file:
 # Log out
 if st.button("Logout"):
     st.session_state.clear()
-    # st.rerun()
+    st.session_state["uploader_key"] = str(np.random.rand())  # reset uploader
+    st.rerun()
