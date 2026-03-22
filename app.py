@@ -11,6 +11,9 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 # FUNCTION LOGIN
+st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
+
+
 def check_login(username, password):
 
     response = supabase.table("users") \
@@ -24,10 +27,10 @@ def check_login(username, password):
         return True
     return False
 
-
-st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
-
 # UI LOGIN
+
+
+st.title("🔐 Login ")
 
 
 def login():
@@ -51,7 +54,6 @@ if not st.session_state["login"]:
     login()
     st.stop()
 
-st.title("🔐 Login ")
 
 # Upload file
 
