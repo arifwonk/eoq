@@ -138,4 +138,4 @@ if uploaded_file:
 # Log out
 if st.button("Logout"):
     st.session_state.clear()
-    st.rerun()
+    # st.rerun()
