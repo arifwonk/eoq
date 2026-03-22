@@ -29,7 +29,7 @@ def check_login(username, password):
 
 
 def login():
-    st.title("🔐 Login ")
+    st.title("🔐 Login System ")
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
