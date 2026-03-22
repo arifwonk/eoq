@@ -5,58 +5,42 @@ import io
 import bcrypt
 from supabase import create_client
 
-# Connection
 SUPABASE_URL = "https://glxjsgzismusmhzwvfud.supabase.co"
 SUPABASE_KEY = "sb_publishable_kKw9D8hXE-gsEWXp1cJxQQ_U6RZEF-A"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# =========================
-# CONFIG
-# =========================
-st.set_page_config(
-    page_title="Inventory Dashboard",
-    page_icon="📦",
-    layout="wide"
-)
+
+# FUNCTION LOGIN
+st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 
 
-# =========================
-# LOGIN FUNCTION (SECURE)
-# =========================
 def check_login(username, password):
+
     response = supabase.table("users") \
         .select("*") \
         .eq("username", username) \
+        .eq("password", password) \
         .execute()
 
     if len(response.data) > 0:
-        user = response.data[0]
-        stored_password = user["password"]
+        return True
+    return False
 
-        if bcrypt.checkpw(password.encode(), stored_password.encode()):
-            return True, user["role"]
-
-    return False, None
-
-# UI def login():
+# UI LOGIN
 
 
 def login():
-    st.title("🔐 Login System")
+    st.title("🔐 Login ")
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
 
     if st.button("Login"):
-        valid, role = check_login(username, password)
-
-        if valid:
+        if check_login(username, password):
             st.session_state["login"] = True
             st.session_state["user"] = username
-            st.session_state["role"] = role
-            st.rerun()
         else:
-            st.error("Username / Password salah")
+            st.error("Login gagal")
 
 
 # cek login (PROTECT APP)
@@ -66,6 +50,7 @@ if "login" not in st.session_state:
 if not st.session_state["login"]:
     login()
     st.stop()
+
 
 # Upload file
 
