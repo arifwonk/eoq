@@ -46,12 +46,12 @@ create_user("user1", "4567", "user")
 
 
 # cek login (PROTECT APP)
-if "login" not in st.session_state:
-    st.session_state["login"] = False
+# if "login" not in st.session_state:
+#     st.session_state["login"] = False
 
-if not st.session_state["login"]:
-    login()
-    st.stop()
+# if not st.session_state["login"]:
+#     login()
+#     st.stop()
 
 
 # Upload file
