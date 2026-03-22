@@ -30,11 +30,8 @@ def check_login(username, password):
 # UI LOGIN
 
 
-st.title("🔐 Login ")
-
-
 def login():
-
+    st.title("🔐 Login ")
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
 
