@@ -27,8 +27,6 @@ st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 #     return True
 # return False
 
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-
 
 def create_user(username, password, role):
     hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
