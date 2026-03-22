@@ -52,7 +52,8 @@ if not st.session_state["login"]:
     st.stop()
 
 # Upload file
-uploaded_file = st.file_uploader("Upload file Excel", type=["xlsx"])
+uploaded_file = st.file_uploader("Upload file Excel", type=[
+                                 "xlsx"], key=st.session_state.get("uploader_key", "default"))
 
 
 def get_z(service_level):
