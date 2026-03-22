@@ -51,15 +51,7 @@ if not st.session_state["login"]:
     login()
     st.stop()
 
-# =========================
-# LOGOUT
-# =========================
-if st.button("Logout"):
-    st.session_state.clear()
-    st.rerun()
-
 # Upload file
-
 uploaded_file = st.file_uploader("Upload file Excel", type=["xlsx"])
 
 
@@ -140,3 +132,10 @@ if uploaded_file:
         data=buffer,
         file_name="hasil.xlsx"
     )
+
+# =========================
+# LOGOUT
+# =========================
+if st.button("Logout"):
+    st.session_state.clear()
+    st.rerun()
