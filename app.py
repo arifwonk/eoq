@@ -15,7 +15,7 @@ st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 
 
 def check_login(username, password):
-    response = supabase.table("user")\
+    response = supabase.table("users")\
         .select("*")\
         .eq("username", username)\
         .eq("password", password)\
