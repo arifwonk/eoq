@@ -13,8 +13,6 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 # FUNCTION LOGIN
 def check_login(username, password):
 
-    st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
-
     response = supabase.table("users") \
         .select("*") \
         .eq("username", username) \
@@ -26,11 +24,13 @@ def check_login(username, password):
         return True
     return False
 
+
+st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
+
 # UI LOGIN
 
 
 def login():
-    st.title("🔐 Login ")
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
@@ -38,7 +38,7 @@ def login():
     if st.button("Login"):
         if check_login(username, password):
             st.session_state["login"] = True
-            st.session_state["users"] = username
+            st.session_state["user"] = username
         else:
             st.error("Login gagal")
 
@@ -50,6 +50,8 @@ if "login" not in st.session_state:
 if not st.session_state["login"]:
     login()
     st.stop()
+
+st.title("🔐 Login ")
 
 # Upload file
 
