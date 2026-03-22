@@ -59,7 +59,9 @@ def login():
             st.error("Username / Password salah")
 
 
-# cek login (PROTECT APP)
+# =========================
+# SESSION CONTROL
+# =========================
 if "login" not in st.session_state:
     st.session_state["login"] = False
 
