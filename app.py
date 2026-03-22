@@ -121,7 +121,7 @@ if uploaded_file:
 
     df_hasil = pd.DataFrame(hasil)
 
-    st.subheader("📊 Hasil Perhitungan")
+    st.subheader("📊 Hasil Analysis")
     st.dataframe(df_hasil)
 
     buffer = io.BytesIO()
