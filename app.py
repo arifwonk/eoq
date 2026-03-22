@@ -131,7 +131,7 @@ if uploaded_file:
     st.download_button(
         label="⬇️ Download Excel",
         data=buffer,
-        file_name="hasil.xlsx"
+        file_name="Hasil_Analysis.xlsx"
     )
 
 # =========================
