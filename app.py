@@ -5,8 +5,8 @@ import io
 from supabase import create_client
 
 SUPABASE_URL = "https://glxjsgzismusmhzwvfud.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdseGpzZ3ppc211c21oend2ZnVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMzY1MzksImV4cCI6MjA4OTcxMjUzOX0.7MzXsGK4PWamAKe3y9Zkl-cIJgRelSh4RncNIx1yOzg"
-
+# SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdseGpzZ3ppc211c21oend2ZnVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMzY1MzksImV4cCI6MjA4OTcxMjUzOX0.7MzXsGK4PWamAKe3y9Zkl-cIJgRelSh4RncNIx1yOzg"
+SUPABASE_KEY = "sb_publishable_kKw9D8hXE-gsEWXp1cJxQQ_U6RZEF-A"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
