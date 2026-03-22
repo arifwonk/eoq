@@ -29,6 +29,20 @@ def check_login(username, password):
 # UI LOGIN
 
 
+def login():
+    st.title("🔐 Login Supabase")
+
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+
+    if st.button("Login"):
+        if check_login(username, password):
+            st.session_state["login"] = True
+            st.session_state["user"] = username
+        else:
+            st.error("Login gagal")
+
+
 # cek login (PROTECT APP)
 if "login" not in st.session_state:
     st.session_state["login"] = False
