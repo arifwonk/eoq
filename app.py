@@ -37,7 +37,7 @@ def login():
     if st.button("Login"):
         if check_login(username, password):
             st.session_state["login"] = True
-            st.session_state["user"] = username
+            st.session_state["users"] = username
         else:
             st.error("Login Gagal")
 
