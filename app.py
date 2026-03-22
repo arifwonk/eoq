@@ -11,7 +11,6 @@ SUPABASE_KEY = "sb_publishable_kKw9D8hXE-gsEWXp1cJxQQ_U6RZEF-A"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # FUNCTION LOGIN
-st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 
 
 def check_login(username, password):
@@ -52,6 +51,7 @@ if not st.session_state["login"]:
     st.stop()
 
 # Upload file
+st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 uploaded_file = st.file_uploader("Upload file Excel", type=[
                                  "xlsx"], key=st.session_state.get("uploader_key", "default"))
 
