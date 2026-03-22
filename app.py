@@ -14,10 +14,10 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
 
 
-def check_login(useranme, password):
+def check_login(username, password):
     response = supabase.table("user")\
         .select("*")\
-        .eq("username", useranme)\
+        .eq("username", username)\
         .eq("password", password)\
         .execute()
 
