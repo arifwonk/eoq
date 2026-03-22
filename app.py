@@ -11,10 +11,10 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 # FUNCTION LOGIN
-st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
-
-
 def check_login(username, password):
+
+    st.title("📦 Inventory Analysis (ROP, EOQ, Safety Stock)")
+
     response = supabase.table("users") \
         .select("*") \
         .eq("username", username) \
@@ -30,7 +30,7 @@ def check_login(username, password):
 
 
 def login():
-    st.title("🔐 Login Supabase")
+    st.title("🔐 Login Inventory Analysis (ROP, EOQ, Safety Stock)")
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
