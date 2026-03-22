@@ -20,6 +20,7 @@ def check_login(username, password):
         .eq("username", username) \
         .eq("password", password) \
         .execute()
+    st.write(response.data)
 
     if len(response.data) > 0:
         return True
