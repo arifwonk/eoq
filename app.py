@@ -95,10 +95,11 @@ if uploaded_file:
         # Perhitungan
         safety_stock = z * std * np.sqrt(lead_time)
         rop = (avg * lead_time) + safety_stock
-        max_stock = rop + (avg * lead_time)
+        # max_stock = rop + (avg * lead_time)
 
         demand_1year = avg * 365
         eoq = np.sqrt((2 * demand_1year * biaya_pesan) / biaya_simpan)
+        max = rop + eoq
 
         # Simulasi current stock
         current_stock = group["Current_Stock"].iloc[0]
@@ -113,6 +114,7 @@ if uploaded_file:
             "Average": round(avg, 2),
             "Safety_Stock": int(np.ceil(safety_stock)),
             "ROP": int(np.ceil(rop)),
+            "MAX": int(np.ceil(max)),
             "EOQ": int(np.ceil(eoq)),
             "Current_Stock": current_stock,
             "DOI": doi,
