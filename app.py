@@ -123,7 +123,7 @@ if uploaded_file:
 
     df_hasil = pd.DataFrame(hasil)
 
-    st.subheader("📊 Hasil Analysis")
+    st.subheader("📊 Analysis Result")
     st.dataframe(df_hasil)
 
     buffer = io.BytesIO()
@@ -133,7 +133,7 @@ if uploaded_file:
     st.download_button(
         label="⬇️ Download Excel",
         data=buffer,
-        file_name="Hasil_Analysis.xlsx"
+        file_name="Analysis_Result.xlsx"
     )
 
 # =========================
