@@ -44,7 +44,7 @@ def login():
 
 # cek login (PROTECT APP)
 if "login" not in st.session_state:
-    st.session_state["login"] = False
+    st.session_state["login"] = True
 
 if not st.session_state["login"]:
     login()
